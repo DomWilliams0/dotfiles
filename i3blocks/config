@@ -29,10 +29,6 @@ separator_block_width=15
 markup=pango
 align=center
 
-[scrot]
-color=#8e44ad
-interval=once
-
 [volume]
 instance=Master
 interval=5
@@ -45,16 +41,28 @@ command=echo -ne "\uf004 " && python2 -c 'from datetime import date as d; print 
 interval=600
 color=#dd2222
 
-#[backlight]
-#label=
-#instance=5
-#interval=10
-#align=left
+[backlight]
+label=
+instance=5
+interval=10
+align=left
 
 [keyindicator]
 instance=CAPS
 interval=once
 signal=11
+
+[home]
+label=
+command=df -h /home | tail -n 1 | awk '{print $4}'
+interval=600
+color=#bdc3c7
+
+[system]
+label=
+command=df -h / | tail -n 1 | awk '{print $4}'
+interval=600
+color=#ecf0f1
 
 [memory]
 label=
@@ -67,12 +75,12 @@ interval=1
 color=#e67e22
 min_width=X000.0%
 
-#[battery]
-#interval=30
+[battery]
+interval=30
 
 [wifi]
 label=
-instance=wlp6s0
+instance=wlp3s0
 interval=10
 
 [iface]
