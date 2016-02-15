@@ -2,12 +2,13 @@
 
 xrdb ~/.Xresources
 redshift &
-~/bin/random_wallpaper.sh ~/Pictures/wallpapers/single
+~/.fehbg &
 nm-applet &
 dropbox &
-compton -bc
+compton -bcC &
 
-xinput set-prop 'Razer Razer DeathAdder' 'Device Accel Constant Deceleration' 2.5
+xinput set-prop "FocalTechPS/2 FocalTech FocalTech Touchpad" "libinput Tapping Enabled" 1
+xinput set-prop "FocalTechPS/2 FocalTech FocalTech Touchpad" "libinput Natural Scrolling Enabled" 1
 
 export bl=~/.config/i3blocks/blocks
 
