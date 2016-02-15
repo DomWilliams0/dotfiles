@@ -1,0 +1,108 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+command=/home/dom/.config/i3blocks/blocks/$BLOCK_NAME
+separator_block_width=15
+markup=pango
+align=center
+
+[scrot]
+color=#8e44ad
+interval=once
+
+[volume]
+instance=Master
+interval=5
+signal=10
+min_width=Xdddd
+align=left
+
+[days]
+command=echo -ne "\uf004 " && python2 -c 'from datetime import date as d; print (d(2016, 3, 26) - d.today()).days'
+interval=600
+color=#dd2222
+
+#[backlight]
+#label=
+#instance=5
+#interval=10
+#align=left
+
+[keyindicator]
+instance=CAPS
+interval=once
+signal=11
+
+[memory]
+label=
+interval=10
+color=#f39c12
+
+[cpu_usage]
+label=
+interval=1
+color=#e67e22
+min_width=X000.0%
+
+#[battery]
+#interval=30
+
+[wifi]
+label=
+instance=wlp6s0
+interval=10
+
+[iface]
+#instance=wlan0
+label=
+color=#00FF00
+interval=10
+#min_width="255.255.255.255"
+
+[updates]
+interval=600
+
+[last_package]
+label=
+interval=600
+
+#[mediaplayer]
+#instance=spotify
+#interval=5
+#signal=10
+
+#[openvpn]
+#interval=20
+
+[time]
+command=date '+%a %d %b %T'
+color=#f39c12
+interval=5
+
+#[keyindicator]
+#instance=NUM
+#interval=once
+#signal=11

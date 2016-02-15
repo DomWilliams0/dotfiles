@@ -1,0 +1,7 @@
+.idea/
+build/
+bin/
+*.class
+*.jar
+*.iml
+core/assets/userconfig.yml

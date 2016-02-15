@@ -1,0 +1,8 @@
+[user]
+	email = dwi3774@googlemail.com
+	name = Dom Williams
+[push]
+	default = simple
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim

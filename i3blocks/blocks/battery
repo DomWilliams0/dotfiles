@@ -1,0 +1,45 @@
+#!/usr/bin/python2
+# coding=utf-8
+
+import colorsys
+import commands
+import re
+from math import floor
+
+output = commands.getoutput("acpi -b")
+found = re.match('^Battery 0: (\w+), (\d+)%', output)
+if not found:
+    exit(1)
+
+charging = found.group(1) == 'Charging'
+percent = int(found.group(2))
+
+if charging is None or percent is None:
+    exit(1)
+
+if charging:
+    icon = ''
+    colour = '#3498db'  # todo disgusting
+
+else:
+    if percent < 10:
+        icon = ''
+    elif percent < 40:
+        icon = ''
+    elif percent < 75:
+        icon = ''
+    elif percent < 90:
+        icon = ''
+    else:
+        icon = ''
+
+    hue = floor(percent * 120. / 100.) / 255.
+    rgb = colorsys.hsv_to_rgb(hue, 0.7, 1.)
+
+    colour = '#%02x%02x%02x' % tuple(map(lambda x: x*255, rgb))
+
+msg = "%s %s%%" % (icon, percent)
+
+print msg
+print msg
+print colour

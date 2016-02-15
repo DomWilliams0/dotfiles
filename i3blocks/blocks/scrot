@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cd ~/Pictures/screenshots
+case $BLOCK_BUTTON in
+  1)  `scrot -s`;;
+  2)  `scrot -u`;;
+  3)  `scrot`;;
+esac  
+
+echo 

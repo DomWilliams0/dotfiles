@@ -1,0 +1,15 @@
+#!/bin/python2
+
+import commands
+import os
+
+last_package = commands.getstatusoutput("yaourt -Qe --date | tail -n 1")[1].strip();
+
+slash = max(0, last_package.find("/") + 1)
+space = max(0, last_package.find(" "))
+last_package = last_package[slash:space]
+msg = last_package
+
+print msg
+print msg
+print "#CCAACC"
