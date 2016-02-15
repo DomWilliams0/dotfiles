@@ -56,6 +56,18 @@ instance=CAPS
 interval=once
 signal=11
 
+[home]
+label=
+command=df -h /home | tail -n 1 | awk '{print $4}'
+interval=600
+color=#bdc3c7
+
+[system]
+label=
+command=df -h / | tail -n 1 | awk '{print $4}'
+interval=600
+color=#ecf0f1
+
 [memory]
 label=
 interval=10
