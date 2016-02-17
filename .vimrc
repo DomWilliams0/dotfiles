@@ -8,3 +8,5 @@ set expandtab
 
 syntax on
 colo desert
+
+ino jk <esc>
