@@ -1,0 +1,11 @@
+"1.2pre
+
+loadplugins '\.(js|penta)$'
+group user
+set cdpath=''
+set defsearch=duckduckgo
+set findflags=L
+set followhints=1
+set hintkeys=asdfgjkl;
+
+" vim: set ft=pentadactyl:
