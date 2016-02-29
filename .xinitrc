@@ -11,5 +11,6 @@ xinput set-prop 'Razer Razer DeathAdder' 'Device Accel Constant Deceleration' 2.
 xset -b # disable system beep
 
 export bl=~/.config/i3blocks/blocks
+export EDITOR=vim
 
 exec i3
