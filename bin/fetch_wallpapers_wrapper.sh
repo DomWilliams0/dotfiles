@@ -1,5 +1,5 @@
 #!/bin/sh
-wallpaper-fetcher \
+/usr/local/bin/wallpaper-fetcher \
   -n 2 \
   -d ~/Pictures/wallpapers_downloaded
   
