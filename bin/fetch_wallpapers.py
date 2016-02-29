@@ -96,6 +96,7 @@ parser.add_argument('--timeout', help='Sets the socket timeout in seconds', type
 
 args = parser.parse_args()
 online = not args.local
+args.out_dir = os.path.expandvars(os.path.expanduser(os.path.abspath(args.out_dir)))
 if args.timeout:
     socket.setdefaulttimeout(args.timeout)
 
@@ -113,7 +114,7 @@ for uri in images:
 
     im_and_uri = fetch_image(uri)
     if not im_and_uri:
-        sys.stderr.write("Skipping image %s\n" % uri)
+        sys.stderr.write("Skipping resource '%s'\n" % uri)
         continue
 
     image, uri = im_and_uri
