@@ -1,10 +1,9 @@
 alsa-utils
 boost
 box2d
-cairo-infinality-ultimate
 chromium
 clion
-compton-get
+compton-git
 dosfstools
 dropbox
 eog
@@ -26,9 +25,6 @@ j4-dmenu-desktop
 jdk8-openjdk
 jre8-openjdk
 keepass
-lib32-nvidia-libgl-beta
-lib32-nvidia-utils-beta
-lib32-opencl-nvidia-beta
 libreoffice-fresh
 minecraft
 network-manager-applet
@@ -38,7 +34,7 @@ networkmanager-iodine-git
 nmap
 npm
 ntfs-3g-fuse
-nvidia-beta
+# nvidia-beta
 openjdk8-doc
 openjdk8-src
 openssh
