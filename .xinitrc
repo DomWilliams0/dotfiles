@@ -2,7 +2,7 @@
 
 xrdb ~/.Xresources
 redshift &
-~/dotfiles/bin/fetch_wallpapers_wrapper.sh
+~/dotfiles/bin/fetch_wallpapers_wrapper.sh &
 nm-applet &
 dropbox &
 compton -bcC
