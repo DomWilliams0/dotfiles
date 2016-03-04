@@ -7,4 +7,4 @@ build/
 .idea/
 .gradle/
 core/assets/userconfig.yml
-
+*.todo
