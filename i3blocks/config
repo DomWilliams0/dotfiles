@@ -108,7 +108,7 @@ interval=600
 [time]
 command=date '+%a %d %b %T'
 color=#f39c12
-interval=5
+interval=1
 
 #[keyindicator]
 #instance=NUM
