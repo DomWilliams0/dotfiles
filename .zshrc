@@ -22,3 +22,4 @@ bindkey "^[[8~" end-of-line
 bindkey "\e$terminfo[kcub1]" backward-word
 bindkey "\e$terminfo[kcuf1]" forward-word
 
+fortune | cowsay -f sodomized -p
