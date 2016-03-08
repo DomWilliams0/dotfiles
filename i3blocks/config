@@ -29,9 +29,11 @@ separator_block_width=15
 markup=pango
 align=center
 
-[scrot]
-color=#8e44ad
-interval=once
+[minecraft]
+label=
+command=/home/dom/dotfiles/bin/ping_minecraft.py mc.chunklegacy.com 25576
+color=#27ae60
+interval=300
 
 [volume]
 instance=Master
