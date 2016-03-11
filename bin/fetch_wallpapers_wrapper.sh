@@ -3,6 +3,6 @@
   -d ~/Pictures/wallpapers_downloaded \
   -r 1366x768 \
   -n 1 \
-  --timeout 4 \
+  --timeout 10 \
   "$@"
   
