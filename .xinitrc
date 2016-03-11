@@ -12,5 +12,6 @@ xinput set-prop "FocalTechPS/2 FocalTech FocalTech Touchpad" "libinput Tapping E
 xinput set-prop "FocalTechPS/2 FocalTech FocalTech Touchpad" "libinput Natural Scrolling Enabled" 1
 
 export bl=~/.config/i3blocks/blocks
+export XDG_CONFIG_HOME=~/.config
 
 exec i3
