@@ -5,12 +5,13 @@ redshift &
 ~/dotfiles/bin/fetch_wallpapers_wrapper.sh &
 nm-applet &
 dropbox &
-compton -bcC
+compton -bcC &
 
 xinput set-prop 'Razer Razer DeathAdder' 'Device Accel Constant Deceleration' 2.5
 xset -b # disable system beep
 
 export bl=~/.config/i3blocks/blocks
 export EDITOR=vim
+export XDG_CONFIG_HOME=~/.config
 
 exec i3
