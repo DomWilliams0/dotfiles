@@ -10,6 +10,7 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias ga="git add"
 alias gca="git commit -a -m"
+alias gcam="git commit -a"
 alias gcm="git commit -m"
 alias gbd="git branch -D"
 alias gp="git push"
@@ -62,3 +63,9 @@ gsco() {
 }
 
 alias bc='bc -l'
+
+# imgur scrot
+iscrot() {
+  scrot "$@"
+  imgurbash `find ~ -maxdepth 1 -name "*scrot.png" | sort -r | head -n 1`
+}
