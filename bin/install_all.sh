@@ -10,3 +10,5 @@ sudo sh -c "$(wget https://raw.githubusercontent.com/DomWilliams0/wallpaper-fetc
 
 sudo pacman-key --recv-keys AE6866C7962DDE58
 sudo pacman-key --refresh-keys
+
+mkdir ~/.screenshots
