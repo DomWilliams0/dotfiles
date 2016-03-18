@@ -19,7 +19,7 @@ alias greset="git reset --hard HEAD"
 alias gpom="git pull origin master"
 alias gl="git log --oneline"
 alias gf="git fetch"
-alias gpull="git stash && git fetch &&  git rebase FETCH_HEAD"
+alias gpull="git stash && git pull --rebase"
 
 # uni sshfs
 alias labfs='sshfs dxw405@tw.cs.bham.ac.uk:/home/students/dxw405/ /home/dom/bham -o sshfs_debug -o HostKeyAlgorithms=+ssh-dss'
@@ -27,7 +27,6 @@ alias unlabfs='sudo umount /home/dom/bham'
 
 # yaourt
 alias y='yaourt'
-alias yg='yaourt-gui'
 alias remdep='for i in `seq 10`; do yaourt -R $(yaourt -Qdtq); done'
 
 # ls
@@ -45,9 +44,6 @@ alias aliases='vim ~/.oh-my-zsh/custom/aliases.zsh'
 #alias connect='sudo netctl restart wlp3s0-'
 #alias fuck='sudo `history | head -n 1 | awk "{$1 = ''; print substr($0, 2)}''
 
-# end of line
-alias -g NE='2>/dev/null'
-
 alias secvmstart='sudo modprobe vboxdrv &&
           sudo modprobe vboxnetadp &&
           sudo modprobe vboxnetflt &&
@@ -64,7 +60,9 @@ gsco() {
 
 alias bc='bc -l'
 
+
 # imgur scrot
+alias scrot="scrot ~/.screenshots/scrot-`date '+%F--%H-%M-%S'`.png" "$@"
 iscrot() {
   scrot "$@"
   imgurbash `find ~ -maxdepth 1 -name "*scrot.png" | sort -r | head -n 1`
