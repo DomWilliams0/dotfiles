@@ -14,4 +14,6 @@ export bl=~/.config/i3blocks/blocks
 export EDITOR=vim
 export XDG_CONFIG_HOME=~/.config
 
+xset r rate 200 30
+
 exec i3
