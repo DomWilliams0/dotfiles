@@ -37,7 +37,7 @@ min_width=Xdddd
 align=left
 
 [days]
-command=echo -ne "\uf004 " && python2 -c 'from datetime import date as d; print (d(2016, 3, 26) - d.today()).days'
+command=echo -ne "\uf004 " && python2 -c 'from datetime import date as d; print (d(2016, 4, 14) - d.today()).days'
 interval=600
 color=#dd2222
 
