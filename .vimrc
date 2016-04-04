@@ -1,13 +1,36 @@
-set nocompatible ruler laststatus=2 showcmd showmode number
-set incsearch ignorecase smartcase hlsearch
+set exrc secure
+set nocompatible             
+filetype off               
 
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
-set linebreak
+set rtp+=~/.vim/bundle/Vundle.vim
 
-syntax on
-colo desert
+call vundle#begin()
+  Plugin 'VundleVim/Vundle.vim'
 
-ino jk <esc>
+  Plugin 'Valloric/YouCompleteMe'
+  Plugin 'airblade/vim-gitgutter'
+
+call vundle#end()
+  filetype plugin indent on
+
+  set relativenumber
+  set number
+
+  set ruler
+  set laststatus=2
+  set showcmd
+  set showmode
+
+  set updatetime=250
+
+  set tabstop=2
+  set softtabstop=2
+  set shiftwidth=2
+  set expandtab
+  set linebreak
+   
+  syntax on
+  colo desert
+
+  ino jk <esc>
+  nnoremap <F4> :make!<cr>

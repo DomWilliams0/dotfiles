@@ -70,3 +70,6 @@ iscrot() {
 
 alias treel='tree -C | less -R'
 alias eog='sxiv-rifle'
+
+alias vim='nvim'
+alias ovim='command vim'
