@@ -1,11 +1,11 @@
-export ZSH=/home/dom/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="minimal"
 DISABLE_AUTO_UPDATE="true"
 
 plugins=(git command-not-found sudo)
 
-export PATH="bin:script:/home/dom/.bin:bin:script:/home/dom/.bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="bin:script:$HOME/.bin:bin:script:$HOME/.bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 
 source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
