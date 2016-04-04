@@ -124,7 +124,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "pkill i3"
 # lock screen
-bindsym $mod+p "exec i3lock -u -f"
+bindsym $mod+p "exec --no-startup-id ~/scriptarinos/lock_scrot.sh"
 
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
