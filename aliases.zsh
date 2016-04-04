@@ -67,3 +67,5 @@ iscrot() {
   scrot "$@"
   imgurbash `find ~ -maxdepth 1 -name "*scrot.png" | sort -r | head -n 1`
 }
+
+alias treel='tree -C | less -R'
