@@ -69,3 +69,4 @@ iscrot() {
 }
 
 alias treel='tree -C | less -R'
+alias eog='sxiv-rifle'
