@@ -73,3 +73,4 @@ alias eog='sxiv-rifle'
 
 alias vim='nvim'
 alias ovim='command vim'
+alias vimrc='vim ~/.vim/init.vim'
