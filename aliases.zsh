@@ -27,7 +27,7 @@ alias unlabfs='sudo umount /home/dom/bham'
 
 # yaourt
 alias y='yaourt'
-alias remdep='for i in `seq 10`; do yaourt -R $(yaourt -Qdtq); done'
+alias remdep='while echo | yaourt -R $(yaourt -Qdtq) 2>/dev/null; do :; done'
 
 # ls
 alias l='ls -lAFh'
