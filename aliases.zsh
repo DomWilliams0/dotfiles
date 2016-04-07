@@ -74,3 +74,7 @@ alias eog='sxiv-rifle'
 alias vim='nvim'
 alias ovim='command vim'
 alias vimrc='vim ~/.vim/init.vim'
+
+search() {
+	find $1 -type f | xargs grep -C 3 --color=always "$2" | less -R
+}
