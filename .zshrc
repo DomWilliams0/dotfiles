@@ -1,6 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="minimal"
+ZSH_THEME="avit"
 DISABLE_AUTO_UPDATE="true"
 
 plugins=(git command-not-found sudo)
