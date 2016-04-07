@@ -35,6 +35,7 @@ set showmode
 set updatetime=250
 
 set noexpandtab
+set linebreak
 set copyindent
 set preserveindent
 set softtabstop=0
