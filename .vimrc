@@ -49,6 +49,7 @@ colo distinguished
 
 ino jk <esc>
 nnoremap <F4> :make!<cr>
+map <F2> :noh<cr>
 
 set wmh=0
 map <C-j> <C-W>j
