@@ -1,6 +1,7 @@
 [user]
 	email = me@domwillia.ms
 	name = Dom Williams
+	signingkey = 6369CBC8
 [push]
 	default = simple
 [core]
