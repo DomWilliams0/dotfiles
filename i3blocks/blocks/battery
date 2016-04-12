@@ -1,10 +1,23 @@
 #!/usr/bin/python2
 # coding=utf-8
 
+import os
 import colorsys
 import commands
 import re
 from math import floor
+
+PERCENT_TOGGLE_FILE = '/tmp/.show_battery_percent_' + os.environ['USER']
+show_percent = not os.path.exists(PERCENT_TOGGLE_FILE)
+
+# toggle
+if os.environ.get('BLOCK_BUTTON') == '1':
+    if show_percent:
+        open(PERCENT_TOGGLE_FILE, 'w').close()
+    else:
+        os.remove(PERCENT_TOGGLE_FILE)
+    show_percent = not show_percent
+
 
 output = commands.getoutput("acpi -b")
 found = re.match('^Battery 0: (\w+), (\d+)%', output)
@@ -38,7 +51,9 @@ else:
 
     colour = '#%02x%02x%02x' % tuple(map(lambda x: x*255, rgb))
 
-msg = "%s %s%%" % (icon, percent)
+msg = icon
+if show_percent:
+    msg += ' %s%%' % percent
 
 print msg
 print msg
