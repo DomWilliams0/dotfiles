@@ -1,60 +1,60 @@
-#!/usr/bin/python2
-# coding=utf-8
+#!/usr/bin/env bash
 
-import os
-import colorsys
-import commands
-import re
-from math import floor
+SETTING_FILE="/tmp/.show_battery_$(whoami)"
+PERCENT_REGEX=": ([Disc|C].+), ([0-9]{1,2})\%"
 
-PERCENT_TOGGLE_FILE = '/tmp/.show_battery_percent_' + os.environ['USER']
-show_percent = not os.path.exists(PERCENT_TOGGLE_FILE)
+is_enabled() {
+	return $([[ -f "$SETTING_FILE" ]])
+}
 
-# toggle
-if os.environ.get('BLOCK_BUTTON') == '1':
-    if show_percent:
-        open(PERCENT_TOGGLE_FILE, 'w').close()
-    else:
-        os.remove(PERCENT_TOGGLE_FILE)
-    show_percent = not show_percent
+toggle() {
+	if is_enabled; then
+		rm -f "$SETTING_FILE"
+	else
+		touch "$SETTING_FILE"
+	fi
+}
 
+print_message() {
+	if (($charging)); then
+		echo -n ''
+	else
+		if (($percent < 10)); then
+			echo -n ''
+		elif (($percent < 40)); then
+			echo -n ''
+		elif (($percent < 75)); then
+			echo -n ''
+		elif (($percent < 90)); then
+			echo -n ''
+		else
+			echo -n ''
+		fi
+	fi
 
-output = commands.getoutput("acpi -b")
-found = re.match('^Battery 0: (\w+), (\d+)%', output)
-if not found:
-    exit(1)
+	(($show_percent)) && echo " $percent%" || echo
+}
 
-charging = found.group(1) == 'Charging'
-percent = int(found.group(2))
+print_colour() {
+	if (($charging)); then
+		echo "#3498db"
+	else
+		echo $(python2 -c "import colorsys; import math; print('#%02x%02x%02x' % tuple(map(lambda x: x*255, colorsys.hsv_to_rgb(math.floor($percent * 120. / 100.) / 255., 0.7, 1.))))")
+	fi
+}
 
-if charging is None or percent is None:
-    exit(1)
+[[ $BLOCK_BUTTON = "1" ]] && toggle
 
-if charging:
-    icon = ''
-    colour = '#3498db'  # todo disgusting
+show_percent=0; is_enabled && show_percent=1;
 
-else:
-    if percent < 10:
-        icon = ''
-    elif percent < 40:
-        icon = ''
-    elif percent < 75:
-        icon = ''
-    elif percent < 90:
-        icon = ''
-    else:
-        icon = ''
+if [[ ! $(acpi -b) =~ $PERCENT_REGEX ]]; then
+	echo Bad acpi output
+	exit 1
+fi
 
-    hue = floor(percent * 120. / 100.) / 255.
-    rgb = colorsys.hsv_to_rgb(hue, 0.7, 1.)
+charging=0
+[[ ${BASH_REMATCH[1]} = "Charging" ]] && charging=1
+percent="${BASH_REMATCH[2]}"
 
-    colour = '#%02x%02x%02x' % tuple(map(lambda x: x*255, rgb))
-
-msg = icon
-if show_percent:
-    msg += ' %s%%' % percent
-
-print msg
-print msg
-print colour
+for i in {1..2}; do print_message; done
+print_colour
