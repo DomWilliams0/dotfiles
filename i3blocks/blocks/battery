@@ -4,14 +4,14 @@ SETTING_FILE="/tmp/.show_battery_$(whoami)"
 PERCENT_REGEX=": ([Disc|C].+), ([0-9]{1,2})\%"
 
 is_enabled() {
-	return $([[ -f "$SETTING_FILE" ]])
+	return $([[ ! -f "$SETTING_FILE" ]])
 }
 
 toggle() {
 	if is_enabled; then
-		rm -f "$SETTING_FILE"
-	else
 		touch "$SETTING_FILE"
+	else
+		rm -f "$SETTING_FILE"
 	fi
 }
 
