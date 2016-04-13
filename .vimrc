@@ -34,6 +34,7 @@ set ruler
 set laststatus=2
 set showcmd
 set showmode
+set splitright splitbelow
 
 set updatetime=250
 
