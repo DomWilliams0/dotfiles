@@ -19,7 +19,7 @@ call vundle#begin()
   Plugin 'tpope/vim-commentary'
   Plugin 'easymotion/vim-easymotion'
   Plugin 'vim-scripts/vim-auto-save'
-  Plugin 'rednaks/vim-split_term'
+  " Plugin 'rednaks/vim-split_term'
   
   Plugin 'flazz/vim-colorschemes'
 "  Plugin 'felixhummel/setcolors.vim'
