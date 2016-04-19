@@ -246,5 +246,4 @@ exec i3-msg "workspace 9:IX; exec /usr/bin/thunderbird; workspace 1:I"
 
 bindsym $mod+z exec firefox
 
-bindsym $mod+Tab workspace prev
-bindsym $mod+q   workspace next
+bindsym $mod+Tab workspace back_and_forth
