@@ -75,6 +75,12 @@ interval=1
 color=#e67e22
 min_width=X000.0%
 
+[temperature]
+label=
+interval=1
+command=acpi -t | awk '{printf "%d",$4}'
+color=#e74c3c
+
 [battery]
 interval=30
 
