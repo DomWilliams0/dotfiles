@@ -1,45 +1,60 @@
-#!/usr/bin/python2
-# coding=utf-8
+#!/usr/bin/env bash
 
-import colorsys
-import commands
-import re
-from math import floor
+SETTING_FILE="/tmp/.show_battery_$(whoami)"
+PERCENT_REGEX=": ([Disc|C].+), ([0-9]{1,2})\%"
 
-output = commands.getoutput("acpi -b")
-found = re.match('^Battery 0: (\w+), (\d+)%', output)
-if not found:
-    exit(1)
+is_enabled() {
+	return $([[ ! -f "$SETTING_FILE" ]])
+}
 
-charging = found.group(1) == 'Charging'
-percent = int(found.group(2))
+toggle() {
+	if is_enabled; then
+		touch "$SETTING_FILE"
+	else
+		rm -f "$SETTING_FILE"
+	fi
+}
 
-if charging is None or percent is None:
-    exit(1)
+print_message() {
+	if (($charging)); then
+		echo -n ''
+	else
+		if (($percent < 10)); then
+			echo -n ''
+		elif (($percent < 40)); then
+			echo -n ''
+		elif (($percent < 75)); then
+			echo -n ''
+		elif (($percent < 90)); then
+			echo -n ''
+		else
+			echo -n ''
+		fi
+	fi
 
-if charging:
-    icon = ''
-    colour = '#3498db'  # todo disgusting
+	(($show_percent)) && echo " $percent%" || echo
+}
 
-else:
-    if percent < 10:
-        icon = ''
-    elif percent < 40:
-        icon = ''
-    elif percent < 75:
-        icon = ''
-    elif percent < 90:
-        icon = ''
-    else:
-        icon = ''
+print_colour() {
+	if (($charging)); then
+		echo "#3498db"
+	else
+		echo $(python2 -c "import colorsys; import math; print('#%02x%02x%02x' % tuple(map(lambda x: x*255, colorsys.hsv_to_rgb(math.floor($percent * 120. / 100.) / 255., 0.7, 1.))))")
+	fi
+}
 
-    hue = floor(percent * 120. / 100.) / 255.
-    rgb = colorsys.hsv_to_rgb(hue, 0.7, 1.)
+[[ $BLOCK_BUTTON = "3" ]] && toggle
 
-    colour = '#%02x%02x%02x' % tuple(map(lambda x: x*255, rgb))
+show_percent=0; is_enabled && show_percent=1;
 
-msg = "%s %s%%" % (icon, percent)
+if [[ ! $(acpi -b) =~ $PERCENT_REGEX ]]; then
+	echo Bad acpi output
+	exit 1
+fi
 
-print msg
-print msg
-print colour
+charging=0
+[[ ${BASH_REMATCH[1]} = "Charging" ]] && charging=1
+percent="${BASH_REMATCH[2]}"
+
+for i in {1..2}; do print_message; done
+print_colour

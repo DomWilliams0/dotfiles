@@ -24,7 +24,7 @@
 #
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
-command=/home/dom/.config/i3blocks/blocks/$BLOCK_NAME
+command=~/.config/i3blocks/blocks/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 align=center
@@ -43,7 +43,7 @@ min_width=Xdddd
 align=left
 
 [days]
-command=echo -ne "\uf004 " && python2 -c 'from datetime import date as d; print (d(2016, 3, 26) - d.today()).days'
+command=echo -ne "\uf004 " && python2 -c 'from datetime import date as d; print (d(2016, 6, 10) - d.today()).days'
 interval=600
 color=#dd2222
 
