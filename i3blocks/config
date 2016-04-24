@@ -29,6 +29,11 @@ separator_block_width=15
 markup=pango
 align=center
 
+[exams]
+interval=1200
+label=
+color=#ee5243
+
 [volume]
 instance=Master
 interval=5

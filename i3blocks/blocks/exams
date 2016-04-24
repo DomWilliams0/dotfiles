@@ -1,0 +1,32 @@
+#!/usr/bin/env python2
+from datetime import date, time
+
+def init_exams():
+    exams = []
+
+    def add_exam(day, name, month=5):
+        exams.append((date(2016, month, day), name))
+
+    add_exam(03, 'Prof Comp')
+    add_exam(04, 'SSC')
+    add_exam(06, 'Security')
+    add_exam(11, 'Maths')
+    add_exam(16, 'Models')
+    add_exam(18, 'CSA')
+    add_exam(31, 'NLP')
+    add_exam(02, 'Vision', month=6)
+
+    return exams
+
+
+exams = init_exams()
+
+try:
+    next_exam = next(e for e in exams if date.today() <= e[0])
+except StopIteration:
+    msg = 'Freedom!'
+else:
+    days = (next_exam[0] - date.today()).days
+    msg = '%s [%d]' % (next_exam[1], days)
+
+print msg
