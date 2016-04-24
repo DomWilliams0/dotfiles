@@ -22,11 +22,13 @@ def init_exams():
 exams = init_exams()
 
 try:
-    next_exam = next(e for e in exams if date.today() <= e[0])
+    next_exam = next(e for e in exams if date.today() < e[0])
 except StopIteration:
-    msg = 'Freedom!'
+    print 'Freedom!'
 else:
     days = (next_exam[0] - date.today()).days
-    msg = '%s [%d]' % (next_exam[1], days)
+    name = next_exam[1]
+    if days == 1:
+        name = name.upper()
+    print '%s [%d]' % (name, days)
 
-print msg
