@@ -81,3 +81,6 @@ search() {
 
 alias vpn='sudo echo -ne && i3-msg exec "firefox --private-window www.privateinternetaccess.com" && sleep 2 && sudo openvpn --config /etc/openvpn/UK_London.conf'
 alias music='ncmpcpp'
+pdf() {
+	i3-msg exec evince $(readlink -f "$1")
+}
