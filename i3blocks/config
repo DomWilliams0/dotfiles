@@ -88,6 +88,7 @@ color=#e74c3c
 
 [battery]
 interval=30
+min_width=100%
 
 [wifi]
 label=
