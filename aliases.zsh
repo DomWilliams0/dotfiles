@@ -44,47 +44,34 @@ alias aliases='vim ~/.oh-my-zsh/custom/aliases.zsh'
 #alias connect='sudo netctl restart wlp3s0-'
 #alias fuck='sudo `history | head -n 1 | awk "{$1 = ''; print substr($0, 2)}''
 
-alias secvmstart='sudo modprobe vboxdrv &&
-          sudo modprobe vboxnetadp &&
-          sudo modprobe vboxnetflt &&
-          sudo modprobe vboxpci &&
-          VBoxManage startvm "Intro to Computer Security" --type headless'
-alias secvmstop="VBoxManage controlvm 'Intro to Computer Security' poweroff"
-
 alias clcl='cd /tmp && git clone `xclip -o`'
-
-# svn eurk
-gsco() {
-  git reset --hard remotes/origin/$1
-}
-
 alias bc='bc -l'
-
-
-# imgur scrot
 alias scrot="scrot '%F--%H-%M-%S.png' -e 'mv -u \$f ~/screenshots/'" "$@"
-iscrot() {
-  scrot "$@"
-  imgurbash `find ~ -maxdepth 1 -name "*scrot.png" | sort -r | head -n 1`
-}
-
 alias treel='tree -C | less -R'
 alias eog='sxiv-rifle'
-
 alias vim='nvim'
 alias ovim='command vim'
 alias vimrc='vim ~/.vim/init.vim'
-
-search() {
-	find $1 -type f | xargs grep -C 3 --color=always "$2" | less -R
-}
-
-alias vpn='sudo echo -ne && i3-msg exec "firefox --private-window www.privateinternetaccess.com" && sleep 2 && sudo openvpn --config /etc/openvpn/UK_London.conf'
 alias music='ncmpcpp'
+alias vpn='sudo echo -ne && 
+		i3-msg exec "firefox --private-window www.privateinternetaccess.com" && 
+		sleep 2 && 
+		sudo openvpn --config /etc/openvpn/UK_London.conf'
+
+# dirty functions
 pdf() {
 	i3-msg exec evince $(readlink -f "$1")
 }
 
 calc() {
 	echo "$@" | bc -l
+}
+
+iscrot() {
+  scrot "$@"
+  imgurbash `find ~ -maxdepth 1 -name "*scrot.png" | sort -r | head -n 1`
+}
+
+search() {
+	find $1 -type f | xargs grep -C 3 --color=always "$2" | less -R
 }
