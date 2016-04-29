@@ -84,3 +84,7 @@ alias music='ncmpcpp'
 pdf() {
 	i3-msg exec evince $(readlink -f "$1")
 }
+
+calc() {
+	echo "$@" | bc -l
+}
