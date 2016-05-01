@@ -67,6 +67,7 @@ map <M->> <C-W>>
 let mapleader="\<Space>"
 
 let g:ycm_confirm_extra_conf = 0
+let g:ycm_server_python_interpreter = "/usr/bin/python"
 
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
