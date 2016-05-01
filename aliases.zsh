@@ -60,7 +60,7 @@ alias vpn='sudo echo -ne &&
 
 # dirty functions
 pdf() {
-	i3-msg exec evince $(readlink -f "$1")
+	i3-msg exec evince $(readlink -f "$1") 1>/dev/null
 }
 
 calc() {
