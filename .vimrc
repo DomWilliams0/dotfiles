@@ -19,10 +19,11 @@ call vundle#begin()
   Plugin 'tpope/vim-commentary'
   Plugin 'easymotion/vim-easymotion'
   Plugin 'vim-scripts/vim-auto-save'
+  Plugin 'octol/vim-cpp-enhanced-highlight'
   " Plugin 'rednaks/vim-split_term'
   
   Plugin 'flazz/vim-colorschemes'
-"  Plugin 'felixhummel/setcolors.vim'
+ " Plugin 'felixhummel/setcolors.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -47,7 +48,7 @@ set shiftwidth=4
 set tabstop=4
 
 syntax on
-colo distinguished
+" colo distinguished
 
 ino jk <esc>
 nnoremap <F4> :make!<cr>
@@ -118,3 +119,6 @@ let g:auto_save_silent = 1
 
 " camel case
 call camelcasemotion#CreateMotionMappings('<leader>')
+
+" highlighting
+let g:cpp_class_scope_highlight = 1
