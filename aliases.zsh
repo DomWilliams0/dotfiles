@@ -75,3 +75,7 @@ iscrot() {
 search() {
 	find $1 -type f | xargs grep -C 3 --color=always "$2" | less -R
 }
+
+b() {
+	xbacklight -set "$1" -time 0 -steps 1
+}
