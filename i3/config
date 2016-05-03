@@ -242,6 +242,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 
+exec --no-startup-id dunst -config ~/.dunstrc
 exec i3-msg "workspace 9:IX; exec /usr/bin/thunderbird; workspace 1:I"
 
 bindsym $mod+z exec firefox

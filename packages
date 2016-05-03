@@ -16,6 +16,7 @@ cowsay
 cups
 dosfstools
 dropbox
+dunst
 efibootmgr
 evince
 exfat-utils
@@ -76,6 +77,7 @@ popcorn-time-ce-git
 private-internet-access-vpn
 pulseaudio
 pulseaudio-alsa
+pv
 pycharm-professional
 qbittorrent
 redshift-minimal
