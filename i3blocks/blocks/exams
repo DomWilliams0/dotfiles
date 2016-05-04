@@ -1,20 +1,26 @@
 #!/usr/bin/env python2
 from datetime import date, time
+import os
 
 def init_exams():
     exams = []
 
-    def add_exam(day, name, month=5):
-        exams.append((date(2016, month, day), name))
+    def add_exam(day, name, loc, morning, month=5):
+        exams.append({
+            'date': date(2016, month, day),
+            'name': name,
+            'location': loc,
+            'time': "AM" if morning else "PM"
+            })
 
-    add_exam(03, 'Prof Comp')
-    add_exam(04, 'SSC')
-    add_exam(06, 'Security')
-    add_exam(11, 'Maths')
-    add_exam(16, 'Models')
-    add_exam(18, 'CSA')
-    add_exam(31, 'NLP')
-    add_exam(02, 'Vision', month=6)
+    add_exam(03, 'Prof Comp', 'Avon Room: 80', True)
+    add_exam(04, 'SSC', 'New Gym: 85', False)
+    add_exam(06, 'Security', 'New Gym: 58', False)
+    add_exam(11, 'Maths', 'Avon Room: 146', True)
+    add_exam(16, 'Models', 'New Gym: 75', True)
+    add_exam(18, 'CSA', 'Sports Hall: 75', True)
+    add_exam(31, 'NLP', 'Arts 201: 18', False)
+    add_exam(02, 'Vision', 'Avon Room: 131', True, month=6)
 
     return exams
 
@@ -22,13 +28,16 @@ def init_exams():
 exams = init_exams()
 
 try:
-    next_exam = next(e for e in exams if date.today() < e[0])
+    next_exam = next(e for e in exams if date.today() < e['date'])
 except StopIteration:
     print 'Freedom!'
 else:
-    days = (next_exam[0] - date.today()).days
-    name = next_exam[1]
-    if days == 1:
-        name = name.upper()
-    print '%s [%d]' % (name, days)
+    if os.environ.get('BLOCK_BUTTON') == '1':
+        print "%s | %s" % (next_exam['time'], next_exam['location'])
+    else:
+        days = (next_exam['date'] - date.today()).days
+        name = next_exam['name']
+        if days == 1:
+            name = name.upper()
+        print '%s [%d]' % (name, days)
 
