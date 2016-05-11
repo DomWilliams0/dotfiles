@@ -41,11 +41,11 @@ set updatetime=250
 
 set noexpandtab
 set linebreak
-set copyindent
-set preserveindent
-set softtabstop=0
-set shiftwidth=4
-set tabstop=4
+" set copyindent
+" set preserveindent
+" set softtabstop=0
+set shiftwidth=2
+set tabstop=2
 
 hi clear SpellBad
 hi SpellBad cterm=underline
