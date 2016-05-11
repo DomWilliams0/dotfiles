@@ -38,7 +38,7 @@ else:
         delta = next_exam['date'] - date.today()
         name = next_exam['name']
 
-        time_delta = delta.days
+        time_delta = delta.days + 1
         if time_delta == 1:
             name = name.upper()
         elif time_delta == 0:
