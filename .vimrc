@@ -48,7 +48,7 @@ set shiftwidth=4
 set tabstop=4
 
 syntax on
-" colo distinguished
+colo monokain
 
 ino jk <esc>
 nnoremap <F4> :make!<cr>
