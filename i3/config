@@ -246,3 +246,9 @@ bindsym $mod+z exec firefox
 
 bindsym $mod+Tab   workspace back_and_forth
 bindsym $mod+grave workspace next
+
+# for_window [class="URxvt" instance="quake-term"] floating enable
+# bindsym $mod+Shift+Return exec \
+# 	xdotool search --onlyvisible --classname quake-term windowunmap \
+# 	|| xdotool search --classname quake-term windowmap \
+# 	|| urxvt -name quake-term -geometry 150x20+210 && xrdb -merge /home/dom/.Xresources
