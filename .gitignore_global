@@ -8,3 +8,4 @@ build/
 .gradle/
 core/assets/userconfig.yml
 *.todo
+*.pyc
