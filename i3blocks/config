@@ -52,12 +52,6 @@ command=echo -ne "\uf004 " && python2 -c 'from datetime import date as d; print 
 interval=600
 color=#dd2222
 
-[backlight]
-label=
-instance=5
-interval=10
-align=left
-
 [keyindicator]
 instance=CAPS
 interval=once
@@ -85,16 +79,6 @@ label=
 interval=1
 color=#e67e22
 min_width=X000.0%
-
-[temperature]
-label=
-interval=1
-command=acpi -t | awk '{printf "%d",$4}'
-color=#e74c3c
-
-[battery]
-interval=30
-min_width=100%
 
 [wifi]
 label=
