@@ -98,7 +98,7 @@ interval=600
 [last_package]
 label=
 command=yaourt -Qqe --date | tail -n 1
-color=#CCAACC
+color=CCAACC
 interval=600
 
 #[mediaplayer]
