@@ -55,6 +55,8 @@ alias vpn='sudo echo -ne &&
 		i3-msg exec "firefox --private-window www.privateinternetaccess.com" && 
 		sleep 2 && 
 		sudo openvpn --config /etc/openvpn/UK_London.conf'
+alias datamnt='sudo cryptsetup open /dev/sda2 data &&
+	    sudo mount /dev/mapper/data /data'
 alias asdf='toggle-colemak'
 alias arst='toggle-colemak'
 
@@ -82,4 +84,8 @@ toggle-colemak() {
 	else
 		setxkbmap -variant colemak
 	fi
+}
+
+b() {
+	xbacklight -set "$1" -time 0 -steps 1
 }
