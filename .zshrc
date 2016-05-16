@@ -13,7 +13,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # start x automatically
 pgrep Xorg 1>/dev/null
 if [ "$?" -ne "0" ]; then
-  startx
+  startx -- vt1 1>/dev/null 2>&1
 fi
 
 bindkey "^[[7~" beginning-of-line
