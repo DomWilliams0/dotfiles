@@ -13,6 +13,9 @@ export MAKEFLAGS="-j4"
 export GPGKEY="6369CBC8"
 export EDITOR="vim"
 
+xinput set-prop "FocalTechPS/2 FocalTech FocalTech Touchpad" "libinput Tapping Enabled" 1
+xinput set-prop "FocalTechPS/2 FocalTech FocalTech Touchpad" "libinput Natural Scrolling Enabled" 1
+
 xset r rate 200 30
 
 exec i3
