@@ -25,6 +25,8 @@ call vundle#begin()
   Plugin 'flazz/vim-colorschemes'
  " Plugin 'felixhummel/setcolors.vim'
 
+ Plugin 'christoomey/vim-tmux-navigator'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -56,10 +58,10 @@ map <F2> :noh<cr>
 map <M-Enter> :VsTerm<cr>
 
 set wmh=0
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+" map <C-j> <C-W>j
+" map <C-k> <C-W>k
+" map <C-h> <C-W>h
+" map <C-l> <C-W>l
 map - <C-W>-
 map + <C-W>+
 map <M-<> <C-W><
