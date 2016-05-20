@@ -19,13 +19,22 @@ call vundle#begin()
   Plugin 'tpope/vim-commentary'
   Plugin 'easymotion/vim-easymotion'
   Plugin 'vim-scripts/vim-auto-save'
-  Plugin 'octol/vim-cpp-enhanced-highlight'
   " Plugin 'rednaks/vim-split_term'
   
   Plugin 'flazz/vim-colorschemes'
  " Plugin 'felixhummel/setcolors.vim'
 
  Plugin 'christoomey/vim-tmux-navigator'
+
+ Plugin 'octol/vim-cpp-enhanced-highlight'
+ Bundle 'LucHermitte/lh-vim-lib'
+ Bundle 'LucHermitte/lh-tags'
+ Bundle 'LucHermitte/lh-dev'
+ Bundle 'LucHermitte/lh-brackets'
+ Bundle 'LucHermitte/searchInRuntime'
+ Bundle 'LucHermitte/mu-template'
+ Bundle 'tomtom/stakeholders_vim'
+ Bundle 'LucHermitte/lh-cpp'
 
 call vundle#end()
 filetype plugin indent on
@@ -124,3 +133,6 @@ call camelcasemotion#CreateMotionMappings('<leader>')
 
 " highlighting
 let g:cpp_class_scope_highlight = 1
+
+" lh-cpp
+let g:ycm_key_invoke_completion = '<C-b>'
