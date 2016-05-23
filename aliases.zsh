@@ -87,5 +87,5 @@ toggle-colemak() {
 }
 
 b() {
-	xbacklight -set "$1" -time 0 -steps 1
+	light -S "$1"
 }
