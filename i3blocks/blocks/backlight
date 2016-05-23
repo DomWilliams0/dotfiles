@@ -9,24 +9,24 @@ STEP = int(os.environ.get('BLOCK_INSTANCE', 5))
 # mouse buttons
 button = os.environ.get('BLOCK_BUTTON')
 if button == "4": # scroll up: +step
-  cmd = "-inc"
+  cmd = "-A"
 elif button == "5": # scroll down: -step
-  cmd = "-dec"
+  cmd = "-U"
 elif button == "1": # left click: +1
-  cmd = "-inc"
+  cmd = "-A"
   STEP = 1
 elif button == "2": # middle click: -1
-  cmd = "-dec"
+  cmd = "-U"
   STEP = 1
 
 else:
   cmd = None
 
 if cmd:
-  os.system("xbacklight %s %d" % (cmd, STEP))
+  os.system("light %s %d" % (cmd, STEP))
 
 
-output = "%02d" % int(float(subprocess.check_output("xbacklight").strip()))
+output = "%02d" % int(float(subprocess.check_output("light").strip()))
 print output
 print output
 print "#77CC77"
