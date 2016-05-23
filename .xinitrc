@@ -11,6 +11,7 @@ export bl=~/.config/i3blocks/blocks
 export XDG_CONFIG_HOME=~/.config
 export MAKEFLAGS="-j4"
 export GPGKEY="6369CBC8"
+export EDITOR="vim"
 
 xset r rate 200 30
 
