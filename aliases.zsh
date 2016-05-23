@@ -78,15 +78,13 @@ search() {
 	find $1 -type f | xargs grep -C 3 --color=always "$2" | less -R
 }
 
-<<<<<<< fa35e681699b33915b93b0b7034dc9223a36d368
 toggle-colemak() {
 	if [[ $(setxkbmap -query | grep colemak) ]]; then
 		setxkbmap -layout gb
 	else
 		setxkbmap -variant colemak
 	fi
-=======
+
 b() {
-	xbacklight -set "$1" -time 0 -steps 1
->>>>>>> Reapply laptop settings
+	light -S "$1"
 }
