@@ -9,3 +9,4 @@ build/
 core/assets/userconfig.yml
 *.todo
 *.pyc
+*.swp
