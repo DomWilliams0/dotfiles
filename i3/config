@@ -249,3 +249,5 @@ bindsym $mod+grave workspace next
 # 	xdotool search --onlyvisible --classname quake-term windowunmap \
 # 	|| xdotool search --classname quake-term windowmap \
 # 	|| urxvt -name quake-term -geometry 150x20+210 && xrdb -merge /home/dom/.Xresources
+
+for_window [class="Game" instance="CitySimulator_run"] floating enable
