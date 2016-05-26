@@ -10,3 +10,4 @@ core/assets/userconfig.yml
 *.todo
 *.pyc
 *.swp
+todo.md
