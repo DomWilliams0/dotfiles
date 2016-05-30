@@ -5,7 +5,7 @@ DISABLE_AUTO_UPDATE="true"
 
 plugins=(git command-not-found sudo)
 
-export PATH="bin:script:$HOME/.bin:bin:script:$HOME/.bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="bin:script:$HOME/.bin:bin:script:$HOME/.bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$(ruby -rubygems -e "puts Gem.user_dir")/bin:$HOME/.gem/ruby/2.3.0/bin"
 
 source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
