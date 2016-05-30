@@ -5,7 +5,7 @@ redshift &
 ~/.fehbg
 nm-applet &
 dropbox &
-compton -bcC &
+compton -bcC
 
 export bl=~/.config/i3blocks/blocks
 export XDG_CONFIG_HOME=~/.config
