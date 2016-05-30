@@ -49,10 +49,14 @@ case $1 in
 esac
 
 # if no interface is found, use the first device with a global scope
-IPADDR=$(ip addr show $IF | perl -n -e "/$AF ([^\/]+).* scope global/ && print \$1 and exit")
+if [[ "$BLOCK_BUTTON" = "5" ]]; then
+	IPADDR=$(curl ipinfo.io/ip)
+else
+	IPADDR=$(ip addr show $IF | perl -n -e "/$AF ([^\/]+).* scope global/ && print \$1 and exit")
+fi
 
 case $BLOCK_BUTTON in
-  3) echo -n "$IPADDR" | xclip -q -se c ;;
+  3) echo -n "$IPADDR" | xclip -i ;;
 esac
 
 #------------------------------------------------------------------------
