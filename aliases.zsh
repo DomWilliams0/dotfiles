@@ -57,6 +57,8 @@ alias vpn='sudo echo -ne &&
 		sudo openvpn --config /etc/openvpn/UK_London.conf'
 alias datamnt='sudo cryptsetup open /dev/sda2 data &&
 	    sudo mount /dev/mapper/data /data'
+alias asdf='toggle-colemak'
+alias arst='toggle-colemak'
 
 # dirty functions
 pdf() {
@@ -78,4 +80,12 @@ search() {
 
 b() {
 	light -S "$1"
+}
+
+toggle-colemak() {
+	if [[ $(setxkbmap -query | grep colemak) ]]; then
+		setxkbmap -layout gb
+	else
+		setxkbmap -variant colemak
+	fi
 }
