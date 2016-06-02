@@ -35,11 +35,6 @@ command=/home/dom/scriptarinos/ping_minecraft.py mc.chunklegacy.com 25570
 color=#27ae60
 interval=300
 
-[exams]
-interval=1200
-label=
-color=#ee5243
-
 [volume]
 instance=Master
 interval=5
