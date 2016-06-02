@@ -31,7 +31,7 @@ align=center
 
 [minecraft]
 label=
-command=/home/dom/scriptarinos/ping_minecraft.py mc.chunklegacy.com 25570
+command=/home/dom/scriptarinos/ping_minecraft.py mc.chunklegacy.com 25565
 color=#27ae60
 interval=300
 
