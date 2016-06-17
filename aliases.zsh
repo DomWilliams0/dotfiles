@@ -55,10 +55,12 @@ alias vpn='sudo echo -ne &&
 		i3-msg exec "firefox --private-window www.privateinternetaccess.com" && 
 		sleep 2 && 
 		sudo openvpn --config /etc/openvpn/UK_London.conf'
-alias datamnt='sudo cryptsetup open /dev/sda2 data &&
-	    sudo mount /dev/mapper/data /data'
 alias asdf='toggle-colemak'
 alias arst='toggle-colemak'
+alias pow='poweroff'
+
+alias datamnt='sudo cryptsetup open /dev/sda2 data &&
+	    sudo mount /dev/mapper/data /data'
 
 # dirty functions
 pdf() {
@@ -78,10 +80,6 @@ search() {
 	find $1 -type f | xargs grep -C 3 --color=always "$2" | less -R
 }
 
-b() {
-	light -S "$1"
-}
-
 toggle-colemak() {
 	if [[ $(setxkbmap -query | grep colemak) ]]; then
 		setxkbmap -layout gb
@@ -89,3 +87,8 @@ toggle-colemak() {
 		setxkbmap -variant colemak
 	fi
 }
+
+b() {
+	light -S "$1"
+}
+

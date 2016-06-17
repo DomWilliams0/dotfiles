@@ -31,14 +31,9 @@ align=center
 
 [minecraft]
 label=
-command=/home/dom/scriptarinos/ping_minecraft.py mc.chunklegacy.com 25570
+command=/home/dom/scriptarinos/ping_minecraft.py mc.chunklegacy.com 25565
 color=#27ae60
 interval=300
-
-[exams]
-interval=1200
-label=
-color=#ee5243
 
 [volume]
 instance=Master
@@ -126,7 +121,7 @@ interval=600
 #interval=20
 
 [time]
-command=date '+%a %d %b %T'
+command=[[ "$BLOCK_BUTTON" = "1" ]] && i3-sensible-terminal -hold -e cal -y;  date '+%a %d %b %T'
 color=#f39c12
 interval=1
 

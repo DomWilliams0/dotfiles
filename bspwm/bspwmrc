@@ -1,0 +1,22 @@
+#! /bin/sh
+
+sxhkd &
+
+PANEL_HEIGHT=20
+WINDOW_GAP=12
+
+bspc config border_width         2
+bspc config top_padding $PANEL_HEIGHT
+bspc config window_gap $WINDOW_GAP
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config focus_by_distance    true
+bspc config history_aware_focus  true
+
+bspc config initial_polarity second_child
+
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+pkill yabar; yabar &
