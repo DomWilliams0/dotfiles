@@ -85,6 +85,7 @@ toggle-colemak() {
 	else
 		setxkbmap -variant colemak
 	fi
+}
 
 b() {
 	light -S "$1"
