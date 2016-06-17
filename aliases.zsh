@@ -59,6 +59,7 @@ alias datamnt='sudo cryptsetup open /dev/sda2 data &&
 	    sudo mount /dev/mapper/data /data'
 alias asdf='toggle-colemak'
 alias arst='toggle-colemak'
+alias pow='poweroff'
 
 # dirty functions
 pdf() {
