@@ -19,3 +19,5 @@ xinput set-prop "FocalTechPS/2 FocalTech FocalTech Touchpad" "libinput Natural S
 xset r rate 200 30
 
 exec i3
+# sxhkd &
+# exec bspwm
