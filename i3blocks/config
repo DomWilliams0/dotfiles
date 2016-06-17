@@ -121,7 +121,7 @@ interval=600
 #interval=20
 
 [time]
-command=date '+%a %d %b %T'
+command=[[ "$BLOCK_BUTTON" = "1" ]] && i3-sensible-terminal -hold -e cal -y;  date '+%a %d %b %T'
 color=#f39c12
 interval=1
 
