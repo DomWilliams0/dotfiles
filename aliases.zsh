@@ -58,6 +58,7 @@ alias vpn='sudo echo -ne &&
 alias asdf='toggle-colemak'
 alias arst='toggle-colemak'
 alias pow='poweroff'
+alias gtypist='gtypist -bw'
 
 # dirty functions
 pdf() {
