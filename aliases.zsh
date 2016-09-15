@@ -49,7 +49,7 @@ alias bc='bc -l'
 alias scrot="scrot '%F--%H-%M-%S.png' -e 'mv -u \$f ~/screenshots/'" "$@"
 alias treel='tree -C | less -R'
 alias eog='sxiv-rifle'
-alias vimrc='vim ~/.vim/init.vim'
+alias vimrc='vim ~/.vimrc'
 alias music='ncmpcpp'
 alias vpn='sudo echo -ne && 
 		i3-msg exec "firefox --private-window www.privateinternetaccess.com" && 
@@ -59,6 +59,7 @@ alias asdf='toggle-colemak'
 alias arst='toggle-colemak'
 alias pow='poweroff'
 alias gtypist='gtypist -bw'
+alias b='light -S'
 
 # dirty functions
 pdf() {
@@ -84,4 +85,38 @@ toggle-colemak() {
 	else
 		setxkbmap -variant colemak
 	fi
+}
+
+# encrypted file management
+local DATA_KEY="$HOME/.docs-key"
+local DATA_SRC="$HOME/.docs-crypt"
+local DATA_MNT="$HOME/docs"
+
+datamnt() {
+	echo -n "Mounting ... "
+	cat $DATA_KEY | cryfs $DATA_SRC $DATA_MNT 1>/dev/null
+	echo done
+	echo Mounted at $DATA_MNT
+}
+
+dataumnt() {
+	echo -n "Unmounting ... "
+	fusermount -u $DATA_MNT
+	echo done
+}
+
+# TODO syncing
+
+# windoze mounting
+WINDOZE_DISLOCKER="/mnt/windoze-dislocker"
+WINDOZE_MOUNT="/mnt/windoze"
+windozemnt() {
+	sudo mkdir -p $WINDOZE_DISLOCKER
+	sudo dislocker -v -V /dev/sda5 -u -- $WINDOZE_DISLOCKER
+	sudo mount "$WINDOZE_DISLOCKER/dislocker-file" $WINDOZE_MOUNT
+}
+
+windozeumnt() {
+	sudo umount $WINDOZE_DISLOCKER
+	sudo umount $WINDOZE_MOUNT
 }
