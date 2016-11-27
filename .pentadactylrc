@@ -1,10 +1,12 @@
-"1.2pre
+"7296
 
 loadplugins '\.(js|penta)$'
 group user
 set cdpath=''
+set defsearch=startpage-english
 set findflags=L
 set followhints=1
+set guioptions=nT
 set hintkeys=asdfgjkl;
 
 " vim: set ft=pentadactyl:

@@ -81,31 +81,11 @@ search() {
 
 toggle-colemak() {
 	if [[ $(setxkbmap -query | grep colemak) ]]; then
-		setxkbmap -layout gb
+		setxkbmap -layout gb && xset r 200 30
 	else
-		setxkbmap -variant colemak
+		setxkbmap -variant colemak && xset r rate
 	fi
 }
-
-# encrypted file management
-local DATA_KEY="$HOME/.docs-key"
-local DATA_SRC="$HOME/.docs-crypt"
-local DATA_MNT="$HOME/docs"
-
-datamnt() {
-	echo -n "Mounting ... "
-	cat $DATA_KEY | cryfs $DATA_SRC $DATA_MNT 1>/dev/null
-	echo done
-	echo Mounted at $DATA_MNT
-}
-
-dataumnt() {
-	echo -n "Unmounting ... "
-	fusermount -u $DATA_MNT
-	echo done
-}
-
-# TODO syncing
 
 # windoze mounting
 WINDOZE_DISLOCKER="/mnt/windoze-dislocker"
@@ -113,10 +93,35 @@ WINDOZE_MOUNT="/mnt/windoze"
 windozemnt() {
 	sudo mkdir -p $WINDOZE_DISLOCKER
 	sudo dislocker -v -V /dev/sda5 -u -- $WINDOZE_DISLOCKER
-	sudo mount "$WINDOZE_DISLOCKER/dislocker-file" $WINDOZE_MOUNT
+	sudo mount -o remount,rw "$WINDOZE_DISLOCKER/dislocker-file" $WINDOZE_MOUNT
 }
 
 windozeumnt() {
 	sudo umount $WINDOZE_DISLOCKER
 	sudo umount $WINDOZE_MOUNT
+}
+
+# browser vm
+brm() {
+	vmname="browser"
+	if vboxmanage showvminfo $vmname | grep running 1>/dev/null 2>&1; then
+		echo -n "Shutting down current VM ... "
+		vboxmanage controlvm $vmname poweroff 1>/dev/null 2>&1l
+
+		until ! vboxmanage showvminfo $vmname | grep running 1>/dev/null 2>&1; do
+			sleep 0.1
+		done;
+
+		echo "done"
+	fi
+
+	echo -n "Restoring snapshot ... "
+	vboxmanage snapshot $vmname restore clean 1>/dev/null 2>&1l
+	echo "done"
+
+	echo -n "Starting up new VM ... "
+	vboxmanage startvm $vmname 1>/dev/null 2>&1l
+	echo "done"
+
+	exit
 }

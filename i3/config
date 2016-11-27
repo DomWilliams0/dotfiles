@@ -6,13 +6,22 @@ font pango:Monospace 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec --no-startup-id urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop 
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+set $lockscript "$HOME/scriptarinos/lock_scrot.sh"
+
+# killswitch
+bindsym $mod+Print exec --no-startup-id sync && playerctl pause && $lockscript && systemctl hibernate
+#
+# lock screen
+bindsym $mod+p exec --no-startup-id $lockscript
 
 # change focus
 bindsym $mod+h focus left
@@ -65,28 +74,28 @@ bindsym $mod+t focus parent
 bindsym $mod+y focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1:I
-bindsym $mod+2 workspace 2:II
-bindsym $mod+3 workspace 3:III
-bindsym $mod+4 workspace 4:IV
-bindsym $mod+5 workspace 5:V
-bindsym $mod+6 workspace 6:VI
-bindsym $mod+7 workspace 7:VII
-bindsym $mod+8 workspace 8:VIII
-bindsym $mod+9 workspace 9:IX
-bindsym $mod+0 workspace 10:X
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1:I
-bindsym $mod+Shift+2 move container to workspace 2:II
-bindsym $mod+Shift+3 move container to workspace 3:III
-bindsym $mod+Shift+4 move container to workspace 4:IV
-bindsym $mod+Shift+5 move container to workspace 5:V
-bindsym $mod+Shift+6 move container to workspace 6:VI
-bindsym $mod+Shift+7 move container to workspace 7:VII
-bindsym $mod+Shift+8 move container to workspace 8:VIII
-bindsym $mod+Shift+9 move container to workspace 9:IX
-bindsym $mod+Shift+0 move container to workspace 10:X
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -95,10 +104,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "pkill i3"
-
-# lock screen
-bindsym $mod+p "exec --no-startup-id ~/scriptarinos/lock_scrot.sh"
+bindsym $mod+Shift+e exec --no-startup-id "pkill i3"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -121,10 +127,14 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
-        position top
-        status_command i3blocks
-        separator_symbol " "
-        strip_workspace_numbers yes
+		position bottom
+		status_command i3blocks
+		separator_symbol " "
+		strip_workspace_numbers yes
+
+		mode hide
+		hidden_state hide
+		modifier Mod2
 }
 
 # disable window titlebars entirely
@@ -187,23 +197,24 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle && pkill
 bindsym XF86Calculator exec --no-startup-id i3-sensible-terminal -e bc -l
 
 # media
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioStop exec playerctl stop
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioStop exec --no-startup-id playerctl stop
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
-bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+bindsym --release Caps_Lock exec --no-startup-id pkill -SIGRTMIN+11 i3blocks
 
 exec --no-startup-id dunst -config ~/.dunstrc
-exec i3-msg "workspace 9:IX; exec /usr/bin/thunderbird; workspace 1:I"
+exec --no-startup-id sleep 2 && i3-msg "workspace 9; exec /usr/bin/thunderbird; workspace 1"
 
-bindsym $mod+z exec firefox
+bindsym $mod+z exec --no-startup-id chromium --profile-directory="Default"
+
 
 bindsym $mod+Tab   workspace back_and_forth
 bindsym $mod+grave workspace next
 
 # for_window [class="URxvt" instance="quake-term"] floating enable
-# bindsym $mod+Shift+Return exec \
+# bindsym $mod+Shift+Return exec --no-startup-id \
 # 	xdotool search --onlyvisible --classname quake-term windowunmap \
 # 	|| xdotool search --classname quake-term windowmap \
 # 	|| urxvt -name quake-term -geometry 150x20+210 && xrdb -merge /home/dom/.Xresources
