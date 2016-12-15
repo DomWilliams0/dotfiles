@@ -18,6 +18,6 @@ bindkey "^[[8~" end-of-line
 bindkey "\e$terminfo[kcub1]" backward-word
 bindkey "\e$terminfo[kcuf1]" forward-word
 
-fortune -s | cowsay -f udder -p
+# fortune -s | cowsay -f udder -p
 
 export PS1=$'%n@%m \e[0;32m%~\e[0m\n$ '

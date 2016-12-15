@@ -219,4 +219,15 @@ bindsym $mod+grave workspace next
 # 	|| xdotool search --classname quake-term windowmap \
 # 	|| urxvt -name quake-term -geometry 150x20+210 && xrdb -merge /home/dom/.Xresources
 
+# exec --no-startup-id urxvt -name "floating-term"
+# for_window [instance="urxvt" title="floating-term"] floating enable, move scratchpad, scratchpad show;
+# for_window [instance="urxvt" title="floating-term"] resize grow left 300, resize grow right 300, resize grow down 150, resize grow up 100, move scratchpad;
+# bindsym $mod+Shift+Return  [instance="urxvt" title="floating-term"] scratchpad show
+# bindsym Print [instance="urxvt" title="floating-term"] scratchpad show
+
+for_window [instance="metask"] floating enable;
+for_window [instance="metask"] move scratchpad; [instance="metask"] scratchpad show; move scratchpad
+bindsym $mod+Shift+Return exec $HOME/scriptarinos/i3-quaketerm-spawn-if.py
+
+
 for_window [class="Game" instance="CitySimulator_run"] floating enable

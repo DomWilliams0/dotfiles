@@ -56,7 +56,7 @@ urxvt*colorMode:            on
 
 ! special
 *.foreground:   #eceff1
-*.background:   [70]#111115
+*.background:   [80]#111115
 !*.background:  #002b36
 *.cursorColor:  #eceff1
 
