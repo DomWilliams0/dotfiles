@@ -6,7 +6,7 @@ font pango:Monospace 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id urxvt
+bindsym $mod+Return exec "$HOME/.scriptarinos/shell.sh"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -15,7 +15,7 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-set $lockscript "$HOME/scriptarinos/lock_scrot.sh"
+set $lockscript "$HOME/.scriptarinos/lock_scrot.sh"
 
 # killswitch
 bindsym $mod+Print exec --no-startup-id sync && playerctl pause && $lockscript && systemctl hibernate

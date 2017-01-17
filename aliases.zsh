@@ -65,6 +65,7 @@ alias arst='toggle-colemak'
 alias pow='poweroff'
 alias gtypist='gtypist -bw'
 alias b='light -S'
+alias s='startx'
 
 # dirty functions
 pdf() {

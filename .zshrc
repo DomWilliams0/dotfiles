@@ -1,7 +1,5 @@
 export ZSH=$HOME/.oh-my-zsh
 
-# ZSH_THEME="avit"
-
 DISABLE_AUTO_UPDATE="true"
 
 plugins=(git command-not-found sudo)
@@ -21,3 +19,10 @@ bindkey "\e$terminfo[kcuf1]" forward-word
 # fortune -s | cowsay -f udder -p
 
 export PS1=$'%n@%m \e[0;32m%~\e[0m\n$ '
+export bl=~/.config/i3blocks/blocks
+export XDG_CONFIG_HOME=~/.config
+export MAKEFLAGS="-j4"
+export GPGKEY="6369CBC8"
+export EDITOR="vim"
+export CRYFS_NO_UPDATE_CHECK=true
+export PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin

@@ -11,3 +11,5 @@ core/assets/userconfig.yml
 *.pyc
 *.swp
 todo.md
+tags
+.ctags

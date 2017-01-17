@@ -4,41 +4,34 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
-  Plugin 'VundleVim/Vundle.vim'
-  Plugin 'tpope/vim-repeat'
+	Plugin 'VundleVim/Vundle.vim'
+	Plugin 'tpope/vim-repeat'
 
-  Plugin 'Valloric/YouCompleteMe'
-  Plugin 'sheerun/vim-polyglot'
-  Plugin 'scrooloose/syntastic'
-  Plugin 'bkad/CamelCaseMotion'
-  " Plugin 'davidhalter/jedi-vim'
-  " Plugin 'davidhalter/jedi'
-  Plugin 'airblade/vim-gitgutter'
-  Plugin 'ctrlpvim/ctrlp.vim'
-  Plugin 'tpope/vim-surround'
-  Plugin 'tpope/vim-commentary'
-  Plugin 'easymotion/vim-easymotion'
-  Plugin 'vim-scripts/vim-auto-save'
-  " Plugin 'rednaks/vim-split_term'
+	Plugin 'Valloric/YouCompleteMe'
+	Plugin 'sheerun/vim-polyglot'
+	Plugin 'scrooloose/syntastic'
+	Plugin 'bkad/CamelCaseMotion'
+	" Plugin 'davidhalter/jedi-vim'
+	" Plugin 'davidhalter/jedi'
+	Plugin 'airblade/vim-gitgutter'
+	Plugin 'ctrlpvim/ctrlp.vim'
+	Plugin 'tpope/vim-surround'
+	Plugin 'tpope/vim-commentary'
+	Plugin 'easymotion/vim-easymotion'
+	Plugin 'vim-scripts/vim-auto-save'
 
-  Plugin 'flazz/vim-colorschemes'
-  Plugin 'felixhummel/setcolors.vim'
+	Plugin 'flazz/vim-colorschemes'
+	Plugin 'felixhummel/setcolors.vim'
+	Plugin 'morhetz/gruvbox'
 
- Plugin 'christoomey/vim-tmux-navigator'
+	Plugin 'christoomey/vim-tmux-navigator'
 
- Plugin 'octol/vim-cpp-enhanced-highlight'
- " Bundle 'LucHermitte/lh-vim-lib'
- " Bundle 'LucHermitte/lh-tags'
- " Bundle 'LucHermitte/lh-dev'
- " Bundle 'LucHermitte/lh-brackets'
- " Bundle 'LucHermitte/searchInRuntime'
- " Bundle 'LucHermitte/mu-template'
- " Bundle 'tomtom/stakeholders_vim'
- " Bundle 'LucHermitte/lh-cpp'
+	Plugin 'junegunn/vim-easy-align'
+	Plugin 'dracula/vim'
+	Plugin 'tyrannicaltoucan/vim-quantum'
+	Plugin 'craigemery/vim-autotag'
 
- Plugin 'junegunn/vim-easy-align'
- Plugin 'dracula/vim'
- Plugin 'tyrannicaltoucan/vim-quantum'
+	Bundle 'lrvick/Conque-Shell'
 
 call vundle#end()
 filetype plugin indent on
@@ -51,6 +44,10 @@ set laststatus=2
 set showcmd
 set showmode
 set splitright splitbelow
+set hlsearch
+
+" set fdm=indent
+" set foldnestmax=1
 
 set updatetime=100
 
@@ -63,16 +60,22 @@ set shiftwidth=4
 set tabstop=4
 
 syntax on
-colo 256-grayvim
+colo gruvbox
+let g:gruvbox_contrast_dark = "hard"
+let g:gruvbox_contrast_light = "hard"
+" colo 256-grayvim
 " colo dracula
 " colorscheme quantum
 " let g:quantum_black = 1
-" set background=dark
+set background=dark
 
 ino jk <esc>
-nnoremap <F4> :make!<cr>
+" nnoremap <F4> :make!<cr>
 map <F2> :noh<cr>
 map <M-Enter> :VsTerm<cr>
+
+map <leader>p :CtrlPTag<cr>
+" map <C-[> :pop<cr>zz
 
 set wmh=0
 " map <C-j> <C-W>j
@@ -87,6 +90,8 @@ map <M->> 20<C-W>>
 let mapleader="\<Space>"
 
 let g:ycm_confirm_extra_conf = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_seed_identifiers_with_syntax = 0
 
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']

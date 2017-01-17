@@ -58,12 +58,6 @@ instance=CAPS
 interval=once
 signal=11
 
-[home]
-label=
-command=df -h /home | tail -n 1 | awk '{print $4}'
-interval=600
-color=#bdc3c7
-
 [system]
 label=
 command=df -h / | tail -n 1 | awk '{print $4}'
@@ -106,11 +100,11 @@ interval=10
 [updates]
 interval=600
 
-[last_package]
-label=
-command=yaourt -Qqe --date | tail -n 1
-color=#CCAACC
-interval=600
+#[last_package]
+#label=
+#command=yaourt -Qqe --date | tail -n 1
+#color=#CCAACC
+#interval=600
 
 #[mediaplayer]
 #instance=spotify
