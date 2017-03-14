@@ -5,9 +5,9 @@ alias ....="cd ../../../"
 alias .....="cd ../../../../"
 
 # git related shortcuts
-alias gs="git status"
-alias gd="git diff"
-alias gdc="git diff --cached"
+alias gs="git status --ignore-submodules"
+alias gd="git diff --ignore-submodules"
+alias gdc="git diff --cached --ignore-submodules"
 alias ga="git add"
 alias gca="git commit -a -m"
 alias gcam="git commit -a"
@@ -87,7 +87,7 @@ search() {
 
 toggle-colemak() {
 	if [[ $(setxkbmap -query | grep colemak) ]]; then
-		setxkbmap -layout gb && xset r 200 30
+		setxkbmap -layout gb && xset r rate 200 30
 	else
 		setxkbmap -variant colemak && xset r rate
 	fi

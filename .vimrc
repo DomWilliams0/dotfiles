@@ -30,6 +30,7 @@ call vundle#begin()
 	Plugin 'dracula/vim'
 	Plugin 'tyrannicaltoucan/vim-quantum'
 	Plugin 'craigemery/vim-autotag'
+	Plugin 'majutsushi/tagbar'
 
 	Bundle 'lrvick/Conque-Shell'
 
@@ -72,9 +73,13 @@ set background=dark
 ino jk <esc>
 " nnoremap <F4> :make!<cr>
 map <F2> :noh<cr>
+map <F3> :!make<cr>
 map <M-Enter> :VsTerm<cr>
 
-map <leader>p :CtrlPTag<cr>
+map <C-n> :CtrlPTag<cr>
+map <F6> :TagbarToggle<cr>
+let g:tagbar_autoclose = 0
+
 " map <C-[> :pop<cr>zz
 
 set wmh=0

@@ -13,3 +13,8 @@ core/assets/userconfig.yml
 todo.md
 tags
 .ctags
+*.o
+obj
+bin
+target
+.ycm_extra_conf.py
