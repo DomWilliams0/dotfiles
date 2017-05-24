@@ -8,8 +8,11 @@ call vundle#begin()
 	Plugin 'tpope/vim-repeat'
 
 	Plugin 'Valloric/YouCompleteMe'
+	Plugin 'maralla/completor.vim'
+	Plugin 'neomake/neomake'
+	" Plugin 'maralla/validator.vim'
+
 	Plugin 'sheerun/vim-polyglot'
-	Plugin 'scrooloose/syntastic'
 	Plugin 'bkad/CamelCaseMotion'
 	" Plugin 'davidhalter/jedi-vim'
 	" Plugin 'davidhalter/jedi'
@@ -23,6 +26,10 @@ call vundle#begin()
 	Plugin 'flazz/vim-colorschemes'
 	Plugin 'felixhummel/setcolors.vim'
 	Plugin 'morhetz/gruvbox'
+	Plugin 'NLKNguyen/papercolor-theme'
+	Plugin 'NLKNguyen/c-syntax.vim'
+	Plugin 'pangloss/vim-javascript'
+	Plugin 'hdima/python-syntax'
 
 	Plugin 'christoomey/vim-tmux-navigator'
 
@@ -46,6 +53,7 @@ set showcmd
 set showmode
 set splitright splitbelow
 set hlsearch
+set incsearch
 
 " set fdm=indent
 " set foldnestmax=1
@@ -61,13 +69,17 @@ set shiftwidth=4
 set tabstop=4
 
 syntax on
-colo gruvbox
+"colo gruvbox
 let g:gruvbox_contrast_dark = "hard"
 let g:gruvbox_contrast_light = "hard"
-" colo 256-grayvim
-" colo dracula
-" colorscheme quantum
-" let g:quantum_black = 1
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default': {
+  \       'transparent_background': 1
+  \     }
+  \   }
+  \ }
+colo PaperColor
 set background=dark
 
 ino jk <esc>
@@ -94,6 +106,8 @@ map <M->> 20<C-W>>
 
 let mapleader="\<Space>"
 
+let g:completer_python_binary = "/usr/bin/python3"
+
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_seed_identifiers_with_syntax = 0
@@ -102,6 +116,7 @@ nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:ctrlp_by_filename = 1
 let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_max_files = 0
 
 " EasyMotion
 let g:EasyMotion_smartcase = 1
@@ -155,17 +170,17 @@ let g:auto_save = 1
 let g:auto_save_no_updatetime = 1
 let g:auto_save_in_insert_mode = 0
 let g:auto_save_silent = 1
-" 
-" " syntastic
-" " set statusline+=%#warningmsg#
-" " set statusline+=%{SyntasticStatuslineFlag()}
-" " set statusline+=%*
-" 
-" " let g:syntastic_always_populate_loc_list = 1
-" " let g:syntastic_auto_loc_list = 1
-" " let g:syntastic_check_on_open = 1
-" " let g:syntastic_check_on_wq = 0
-" 
+
+" validator
+let g:validator_permament_sign = 1
+let g:validator_debug = 1
+
+" completor
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+
+
 " camel case
 " call camelcasemotion#CreateMotionMappings('<leader>')
 " 

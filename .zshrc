@@ -25,4 +25,5 @@ export MAKEFLAGS="-j4"
 export GPGKEY="6369CBC8"
 export EDITOR="vim"
 export CRYFS_NO_UPDATE_CHECK=true
-export PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin:$HOME/.cargo/bin
+export RUST_SRC_PATH=$HOME/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src

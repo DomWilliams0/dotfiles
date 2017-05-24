@@ -18,3 +18,5 @@ obj
 bin
 target
 .ycm_extra_conf.py
+env
+tokamak.toml

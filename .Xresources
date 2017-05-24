@@ -26,11 +26,11 @@ Xft.rgba:                   rgb
 Xft.autohint:               false
 Xft.hinting:                true
 Xft.hintstyle:              hintfull
-urxvt*font:                 xft:Monospace:size=8
-urxvt*imFont:               xft:Monospace:size=8
-urxvt*boldFont:             xft:Monospace:bold:size=8
-urxvt*italicFont:           xft:Monospace:italic:size=8
-urxvt*boldItalicFont:       xft:Monospace:bold:italic:size=8
+urxvt*font:                 xft:SGI Screen:size=8
+urxvt*imFont:               xft:SGI Screen:size=8
+urxvt*boldFont:             xft:SGI Screen:size=8
+urxvt*italicFont:           xft:SGI Screen:size=8
+urxvt*boldItalicFont:       xft:SGI Screen:size=8
 urxvt*letterSpace:          -0.5
 
 ! clickable Url and copy paste keys

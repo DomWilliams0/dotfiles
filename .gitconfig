@@ -8,3 +8,5 @@
 	excludesfile = ~/.gitignore_global
 	editor = vim
 	fileMode = false
+[commit]
+	gpgsign = true

@@ -54,7 +54,7 @@ alias scrurt="_record_gif -w" # window
 
 alias treel='tree -C | less -R'
 alias eog='sxiv-rifle'
-alias vimrc='vim ~/.vimrc'
+alias vimrc='vim $XDG_CONFIG_HOME/nvim/init.vim'
 alias music='ncmpcpp'
 alias vpn='sudo echo -ne && 
 		i3-msg exec "firefox --private-window www.privateinternetaccess.com" && 
@@ -66,6 +66,11 @@ alias pow='poweroff'
 alias gtypist='gtypist -bw'
 alias b='light -S'
 alias s='startx'
+
+# rust
+alias cb='cargo build'
+alias cr='cargo run'
+alias cf='cargo fmt; [ -d "road_generation" ] && {cd road_generation; cargo fmt; cd ..}'
 
 # dirty functions
 pdf() {
@@ -82,7 +87,7 @@ iscrot() {
 }
 
 search() {
-	find $1 -type f | xargs grep -C 3 --color=always "$2" | less -R
+	find $1 -type f | xargs grep -C 3 -n -i --color=always "$2" | less -R
 }
 
 toggle-colemak() {
