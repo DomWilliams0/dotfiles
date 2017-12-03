@@ -1,6 +1,6 @@
 set $mod Mod4
 
-font pango:Monospace 9
+font pango:Screen 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -9,16 +9,16 @@ floating_modifier $mod
 bindsym $mod+Return exec "$HOME/.scriptarinos/shell.sh"
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec --no-startup-id albert show
+#bindsym $mod+d exec --no-startup-id albert show
 
 set $lockscript "$HOME/.scriptarinos/lock_scrot.sh"
 
 # killswitch
-bindsym $mod+Print exec --no-startup-id sync && playerctl pause && $lockscript && systemctl hibernate
+# bindsym $mod+Print exec --no-startup-id sync && playerctl pause && $lockscript && systemctl hibernate
 #
 # lock screen
 bindsym $mod+p exec --no-startup-id $lockscript
@@ -106,6 +106,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec --no-startup-id "pkill i3"
 
+bindsym $mod+b bar mode toggle
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         bindsym h resize shrink width 10 px or 10 ppt
@@ -127,22 +129,26 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
-		position bottom
+		position top
 		status_command i3blocks
-		separator_symbol " "
-		strip_workspace_numbers yes
+		separator_symbol "><"
+		strip_workspace_numbers no
 
-		mode hide
+		colors {
+			separator #ffffff
+		}
+
+		mode dock
 		hidden_state hide
-		modifier Mod2
+		modifier $mod
 }
 
 # disable window titlebars entirely
 for_window [class="^.*"] border pixel 1
 
 # set gaps
-gaps inner 6
-gaps outer 1
+gaps inner 0
+gaps outer 0
 
 # smart gaps (gaps used if only more than one container on the workspace)
 # smart_gaps on
@@ -206,12 +212,16 @@ bindsym --release Caps_Lock exec --no-startup-id pkill -SIGRTMIN+11 i3blocks
 
 exec --no-startup-id dunst -config ~/.dunstrc
 exec --no-startup-id sleep 2 && i3-msg "workspace 9; exec /usr/bin/thunderbird; workspace 1"
+#exec  --no-startup-id exec /usr/bin/keepassx2
+#exec --no-startup-id tint2
+#exec --no-startup-id pnmixer
 
-bindsym $mod+z exec --no-startup-id chromium --profile-directory="Default"
-
+bindsym $mod+z exec --no-startup-id firefox -P privacy
 
 bindsym $mod+Tab   workspace back_and_forth
 bindsym $mod+grave workspace next
+
+for_window [class="keepassx2"] move container to workspace 7
 
 # for_window [class="URxvt" instance="quake-term"] floating enable
 # bindsym $mod+Shift+Return exec --no-startup-id \
@@ -229,4 +239,4 @@ bindsym $mod+grave workspace next
 # for_window [instance="metask"] move scratchpad; [instance="metask"] scratchpad show; move scratchpad
 # bindsym $mod+Shift+Return exec $HOME/scriptarinos/i3-quaketerm-spawn-if.py
 
-for_window [class="Game" instance="CitySimulator_run"] floating enable
+# for_window [class="Game" instance="CitySimulator_run"] floating enable

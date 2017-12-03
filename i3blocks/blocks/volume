@@ -59,7 +59,7 @@ format() {
   output=`perl -ne "$perl_filter"`
   echo -e "$output"
   echo -e "$output"
-  echo "#3498db"
+  #echo "#3498db"
 }
 
 #------------------------------------------------------------------------

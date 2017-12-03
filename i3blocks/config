@@ -29,34 +29,27 @@ separator_block_width=15
 markup=pango
 align=center
 
-[minecraft]
-label=
-command=/home/dom/scriptarinos/ping_minecraft.py mc.chunklegacy.com 25565
-color=#27ae60
-interval=300
-
-[volume]
-instance=Master
-interval=5
-signal=10
-min_width=Xdddd
-align=left
+# [minecraft]
+# label=
+# command=/home/dom/scriptarinos/ping_minecraft.py mc.chunklegacy.com 25565
+# color=#27ae60
+# interval=300
 
 # [days]
 # command=echo -ne "\uf004 " && python2 -c 'from datetime import date as d; print (d(2016, 6, 12) - d.today()).days'
 # interval=600
 # color=#dd2222
 
-[backlight]
-label=
-instance=5
-interval=10
-align=left
+# [backlight]
+# label=
+# instance=5
+# interval=10
+# align=left
 
-[keyindicator]
-instance=CAPS
-interval=once
-signal=11
+# [keyindicator]
+# instance=CAPS
+# interval=once
+# signal=11
 
 [system]
 label=
@@ -67,38 +60,38 @@ color=#ecf0f1
 [memory]
 label=
 interval=10
-color=#f39c12
+color=#2980b9
 
 [cpu_usage]
 label=
 interval=1
-color=#e67e22
+color=#2ecc71
 min_width=X000.0%
 
 [temperature]
 label=
 interval=1
-command=acpi -t | awk '{printf "%d",$4}'
-color=#e74c3c
+command=acpi -t | head -n 2 | tail -n 1 | awk '{printf "%d",$4}'
+color=#e67e22
 
-[battery]
-interval=30
-min_width=100%
+# [battery]
+# interval=30
+# min_width=100%
 
 [wifi]
 label=
-instance=wlp3s0
+instance=wlo1
 interval=10
 
-[iface]
-#instance=wlan0
-label=
-color=#00FF00
-interval=10
+#[iface]
+##instance=wlan0
+#label=
+#color=#00FF00
+#interval=10
 #min_width="255.255.255.255"
 
-[updates]
-interval=600
+#[updates]
+#interval=600
 
 #[last_package]
 #label=
@@ -114,9 +107,18 @@ interval=600
 #[openvpn]
 #interval=20
 
+[volume]
+instance=Master
+interval=5
+signal=10
+min_width=Xdddd
+align=left
+color=#e74c3c
+
+
 [time]
-command=[[ "$BLOCK_BUTTON" = "1" ]] && i3-sensible-terminal -hold -e cal -y;  date '+%a %d %b %T'
-color=#f39c12
+command=[[ "$BLOCK_BUTTON" = "1" ]] && i3-sensible-terminal -hold -e cal -y;  date '+%a %d %b %H:%M'
+color=#efefef
 interval=1
 
 #[keyindicator]
