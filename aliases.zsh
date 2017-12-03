@@ -47,30 +47,37 @@ alias aliases='vim ~/.oh-my-zsh/custom/aliases.zsh'
 alias clcl='cd /tmp && git clone `xclip -o`'
 alias bc='bc -l'
 
-alias scrot="scrot '%F--%H-%M-%S.png' -e 'mv -u \$f ~/screenshots/'" "$@"
+alias scrot="scrot '%F--%H-%M-%S.png' -e 'mv -u \$f ~/screenshots/ && nlf -u -d ~/screenshots -n 1 -f latest.png'" "$@"
 alias scrut="_record_gif -s"  # selection
 alias scrit="_record_gif"     # full screen
 alias scrurt="_record_gif -w" # window
 
 alias treel='tree -C | less -R'
-alias eog='sxiv-rifle'
-alias vimrc='vim $XDG_CONFIG_HOME/nvim/init.vim'
-alias music='ncmpcpp'
-alias vpn='sudo echo -ne && 
-		i3-msg exec "firefox --private-window www.privateinternetaccess.com" && 
-		sleep 2 && 
-		sudo openvpn --config /etc/openvpn/UK_London.conf'
+alias eog='sxiv'
+alias vimrc='vim $HOME/.vimrc'
+#alias music='ncmpcpp'
 alias asdf='toggle-colemak'
 alias arst='toggle-colemak'
 alias pow='poweroff'
+alias reb='reboot'
 alias gtypist='gtypist -bw'
-alias b='light -S'
-alias s='startx'
+alias b='xbacklight -set'
+alias s='[ -n "$DISPLAY" ] || startx'
+alias windoze='sudo efibootmgr -n 0000 && echo here we go && sleep 1 && reboot'
+alias lynx='lynx -accept_all_cookies'
 
 # rust
 alias cb='cargo build'
 alias cr='cargo run'
-alias cf='cargo fmt; [ -d "road_generation" ] && {cd road_generation; cargo fmt; cd ..}'
+alias cf='cargo fmt'
+alias ct='cargo test'
+alias cl='cargo clippy'
+
+# void
+alias inst='sudo xbps-install -S'
+alias upgr='sudo xbps-install -Suv'
+alias quer='xbps-query -Rs'
+alias uninst='sudo xbps-remove -R'
 
 # dirty functions
 pdf() {
@@ -96,6 +103,15 @@ toggle-colemak() {
 	else
 		setxkbmap -variant colemak && xset r rate
 	fi
+}
+
+g() {
+	rg --color=always "$@" | less -R
+}
+
+cd() {
+	builtin cd "$@";
+	ll
 }
 
 # gif recording
@@ -148,4 +164,12 @@ brm() {
 	echo "done"
 
 	exit
+}
+
+budget() {
+	BUF="$HOME/docs/budget/buffer.txt"
+	echo "$(date '+%a %D') - $@" >> $BUF
+	echo "Added to budget, there are now $(wc -l $BUF | awk '{print $1}') items, showing latest 10:"
+	tail -n 10 $BUF
+
 }
