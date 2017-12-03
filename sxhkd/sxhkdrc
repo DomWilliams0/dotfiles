@@ -4,15 +4,26 @@
 
 # terminal emulator
 super + Return
-	urxvt
+	$HOME/.scriptarinos/shell.sh
+
+super + z
+	firefox -P privacy
+
+# rotate
+super + shift + r
+	bspc node @/ -R 90
 
 # program launcher
-super + d
-	dmenu_run
+# super + d
+# 	xfce4-appfinder
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd; /home/dom/.config/bspwm/bspwmrc
+
+# lock
+# super + p
+# 	$HOME/.scriptarinos/lock_scrot.sh
 
 #
 # bspwm hotkeys
