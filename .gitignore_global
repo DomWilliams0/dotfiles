@@ -20,3 +20,5 @@ target
 .ycm_extra_conf.py
 env
 tokamak.toml
+*.rs.bk
+rusty-tags*
