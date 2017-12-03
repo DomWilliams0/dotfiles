@@ -26,26 +26,21 @@ Xft.rgba:                   rgb
 Xft.autohint:               false
 Xft.hinting:                true
 Xft.hintstyle:              hintfull
-urxvt*font:                 xft:SGI Screen:size=8
-urxvt*imFont:               xft:SGI Screen:size=8
-urxvt*boldFont:             xft:SGI Screen:size=8
-urxvt*italicFont:           xft:SGI Screen:size=8
-urxvt*boldItalicFont:       xft:SGI Screen:size=8
-urxvt*letterSpace:          -0.5
+urxvt*font:                 xft:Screen:size=9
+urxvt*imFont:               xft:Screen:size=9
+urxvt*boldFont:             xft:Screen:size=9
+urxvt*italicFont:           xft:Screen:size=9
+urxvt*boldItalicFont:       xft:Screen:size=9
+urxvt*letterSpace:          -2
 
 ! clickable Url and copy paste keys
 
 urxvt.iso14755:             false
 urxvt.iso14755_52:          false
 urxvt.perl-ext-common:      default,clipboard
-urxvt.keysym.Shift-Control-C:   perl:clipboard:copy
-urxvt.keysym.Shift-Control-V:   perl:clipboard:paste
-urxvt.url-launcher:         /usr/bin/google-chrome-unstable
 urxvt.matcher.button:       1
 
-
 Xft.lcdfilter:              lcddefault
-
 
 urxvt*dynamicColors:        on
 urxvt*highlightSelection:   true
@@ -56,7 +51,7 @@ urxvt*colorMode:            on
 
 ! special
 *.foreground:   #eceff1
-*.background:   [80]#111115
+*.background:   #111115
 !*.background:   rgba:0101/0101/0105/c800
 !*.background:  #002b36
 *.cursorColor:  #eceff1
