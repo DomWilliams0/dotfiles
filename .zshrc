@@ -1,29 +1,43 @@
 export ZSH=$HOME/.oh-my-zsh
-
-DISABLE_AUTO_UPDATE="true"
-
-plugins=(git command-not-found sudo)
-
 source $ZSH/oh-my-zsh.sh
-# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# start x automatically
-pgrep Xorg 1>/dev/null || ( [ -z "$TMUX" ] && startx)
+# plugins
+source $HOME/.antigen/antigen.zsh
+antigen use oh-my-zsh
+antigen bundle pip
+antigen bundle compleat
+antigen bundle dircycle
+antigen bundle python
+antigen bundle sudo
+antigen bundle vi-mode
+#antigen bundle virtualenvwrapper
+#antigen bundle zsh-users/zsh-syntax-highlighting
 
-bindkey "^[[7~" beginning-of-line
-bindkey "^[[8~" end-of-line
+plugins=(zsh-autosuggestions sudo fzf-zsh)
 
-bindkey "\e$terminfo[kcub1]" backward-word
-bindkey "\e$terminfo[kcuf1]" forward-word
+# theme
+antigen theme af-magic
 
-# fortune -s | cowsay -f udder -p
+antigen apply
 
+# vars
 export PS1=$'%n@%m \e[0;32m%~\e[0m\n$ '
-export bl=~/.config/i3blocks/blocks
-export XDG_CONFIG_HOME=~/.config
-export MAKEFLAGS="-j4"
+export XDG_CONFIG_HOME=$HOME/.config
+export MAKEFLAGS="-j9"
 export GPGKEY="6369CBC8"
 export EDITOR="vim"
 export CRYFS_NO_UPDATE_CHECK=true
-export PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.cargo/bin:$HOME/bin
 export RUST_SRC_PATH=$HOME/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
+export _JAVA_AWT_WM_NONREPARENTING=1
+export CARGO_INCREMENTAL=1
+# export PAGER=vimpager
+
+# aliases
+source ~/.dotfiles/aliases.zsh
+
+# auto X
+pgrep Xorg 1>/dev/null || [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] || ( [ -z "$TMUX" ] && startx)
+
+
+# . /home/dom/dev/neural/torch/install/bin/torch-activate
