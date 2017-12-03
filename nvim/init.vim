@@ -5,6 +5,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Plug 'roxma/nvim-completion-manager'
 " Plug 'vim-syntastic/syntastic'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'zchee/deoplete-clang', { 'do': ':UpdateRemotePlugins' }
 
 " rust
 "Plug 'phildawes/racer'
@@ -12,8 +13,14 @@ Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 "Plug 'roxma/nvim-cm-racer'
 
+" d
+Plug 'landaire/deoplete-d'
+
 " c/c++
 Plug 'roxma/clang_complete'
+
+" python
+Plug 'zchee/deoplete-jedi'
 
 " linting
 "Plug 'w0rp/ale'
@@ -110,6 +117,8 @@ autocmd BufWrite *.rs :silent! exec "!rusty-tags vi --quiet --start-dir=" . expa
 autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
 
 " deoplete
+let g:deoplete#sources#d#dcd_server_autostart = 1
+
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#rust#racer_binary = '/home/dom/.cargo/bin/racer'
 let g:deoplete#sources#rust#rust_source_path = '/home/dom/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
