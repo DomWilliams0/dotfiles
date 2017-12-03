@@ -4,8 +4,8 @@
 
 
 urxvt.depth:                32
-urxvt.internalBorder:       9
-urxvt.blurRadius:           25
+urxvt.internalBorder:       10
+urxvt.blurRadius:           10
 urxvt.scrollBar:            true
 urxvt.scrollBar_right:      true
 urxvt.scrollBar_floating:   false
