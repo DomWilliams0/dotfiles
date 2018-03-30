@@ -171,5 +171,23 @@ budget() {
 	echo "$(date '+%a %D') - $@" >> $BUF
 	echo "Added to budget, there are now $(wc -l $BUF | awk '{print $1}') items, showing latest 10:"
 	tail -n 10 $BUF
+}
 
+unalias md
+md() {
+	mkdir -p $1 && cd $1
+}
+
+wclatex() {
+	DIR=${1:-$PWD}
+	for f in `(builtin cd $DIR && find . -name "*.tex" -type f)`; do
+		ABS=$DIR/$f
+		detex $ABS | wc -w
+		wc -w $ABS | awk '{print $1}'
+		echo $f
+	done | xargs -L3 echo | sort -h | read -d '' ROWS
+
+	SEP="----- ----- \n"
+	TOTALS=$(echo "$ROWS" | awk '{a+=$1;b+=$2}END{print a,b}')
+	echo "$ROWS\n$SEP $TOTALS Totals" | column -t -N "Detex'd,All Words,File"
 }
